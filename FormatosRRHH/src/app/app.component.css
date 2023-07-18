@@ -1,0 +1,93 @@
+
+.container{
+    margin-top: 10rem;
+}
+
+.nav-item{
+    border-bottom:solid white 2px;
+    margin-top: 1rem;
+}
+
+.nav-item:hover{
+    background-color: aquamarine;
+}
+
+.offcanvas-header, .tituloS{
+    background-color: rgb(36, 153, 199);
+}
+
+/*Color letra del menu*/
+#ulMenu a{
+    color: white;
+}
+
+
+/*Titulo de el aplicativo*/
+
+#titulogrid h1{
+    display: inline-block;
+    /*white-space: nowrap;  Evita que el texto se divida en varias líneas */
+    /*overflow: hidden; Oculta cualquier contenido que desborde el ancho del elemento */
+   /* text-overflow: ellipsis; */
+    
+}
+
+.titulocenter{
+    margin-top: 1rem;
+    text-align: center;
+    padding: 1rem;
+    border-left: solid white 0.2rem;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+#titulogrid{
+    display: flex;
+}
+
+.imagen img{
+    margin-top: 1rem;
+    max-width: 150px;
+    max-height: 110px;
+}
+
+/* Responsive de la barra superior TITULO E IMAGEN*/
+@media(max-width:768px){
+    .titulocenter{
+        text-align: start;
+        margin-top: 0.2rem;
+        font-size: 1.3rem;
+    }
+    #titulogrid{
+        margin-left: 0;
+        white-space: normal;
+    }
+
+    .imagen{
+        margin-left: -0.5rem;
+        width: 100px;
+       height: 100px;
+       display: flex;
+       flex-direction: column;
+    }
+   
+    
+}
+
+
+/*Titulo de menu*/
+#tituloMenu{
+    text-align: center;
+    align-items: center;
+    border-bottom: 1px white solid;
+    justify-content: space-between;
+}
+
+#titulo_menu{
+    width: 100%;
+   justify-content: center;
+}
+
+
+@import "~bootstrap/dist/css/bootstrap.css"
+

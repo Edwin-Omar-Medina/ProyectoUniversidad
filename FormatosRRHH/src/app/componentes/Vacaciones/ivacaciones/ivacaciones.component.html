@@ -1,0 +1,113 @@
+
+<form class="row g-3">
+    <!--Se elije la opcion de documento-->
+    <div class="col-md-6">
+      <label for="validationServer01" class="form-label control">Tipo de identificacion</label>
+      <select id="validationServer01" class="form-select" required>
+        <option selected> - Seleccione el tipo de identificación -</option>
+        <option value="1">Cedula de Ciudadania</option>
+        <option value="2">Pasaporte</option>
+        <option value="3">Cedula de Extrangeria</option>
+      </select>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    
+    <!--Se ingresa el numero de documento-->
+    <div class="col-md-6">
+      <label for="validationServer02" class="form-label">Número de identificacion</label>
+      <input type="number" class="form-control " id="validationServer02"  required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    
+    <!--Se elije la opcion del  permiso-->
+    <div class="col-md-6">
+        <label for="validationServer03" class="form-label control">Tipo de permiso</label>
+        <select id="validationServer03" class="form-select" required>
+          <option selected> - Seleccione el tipo de permiso -</option>
+          <option value="1">Cita Medica</option>
+          <option value="2">Escolar</option>
+          <option value="3">Personal</option>
+          <option value="4">Jornada Familiar</option>
+        </select>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+    </div>
+
+
+    <!--Se elije la opcion remunerado o no -->
+    <div class="col-md-6">
+        <label for="validationServer03" class="form-label control">Seleccione si el tipo de permiso es remunerado o no</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Remunerado  (No se realizaran descuentos)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+            <label class="form-check-label" for="flexRadioDefault2">
+              No remunerado (Acepto que se realizaran descuentos)
+            </label>
+        </div>
+    </div>
+
+
+    <!--Se elije descripcion del permiso-->
+    <div class="col-md-12">
+        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+    <!--Se ingresa datos de fecha salida-->
+    <div class="col-md-3">
+        <label for="validationServer02" class="form-label">Fecha de salida</label>
+        <input type="date" class="form-control " id="validationServer02"  required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+    </div>
+    
+    <!--Se ingresa  hora de salida-->
+    <div class="col-md-3" >
+        <label for="validationServer02" class="form-label">Hora de salida</label>
+        <input type="time" class="form-control " id="validationServer02"  required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+    </div>
+    
+
+    <!--Se ingresa datos de fecha llegada-->
+    <div class="col-md-3" >
+        <label for="validationServer02" class="form-label">Fecha de llegada</label>
+        <input type="date" class="form-control " id="validationServer02"  required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+    </div>
+    
+    <!--Se ingresa datos de hora de llegada-->
+    <div  class="col-md-3">
+        <label for="validationServer02" class="form-label">Hora de llegada</label>
+        <input type="time" class="form-control " id="validationServer02"  required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+    </div>
+
+
+    
+
+    
+  
+   
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit" href="v-permisos">Submit form</button>
+      <a class="btn btn-primary" type="submit" href="v-permisos">Link</a>
+    </div>
+</form>

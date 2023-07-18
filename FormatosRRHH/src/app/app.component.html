@@ -1,0 +1,53 @@
+<nav id="BarraNavegacion" class="navbar navbar-dark fixed-top tituloS">
+  <div class="container-fluid">
+
+    <!--Tlogo y titulo-->
+    
+    <div id="titulogrid" class="navbar-brand col-9" >
+      <div class="imagen"><img  routerLink="Home" src="../assets/Image/Logo.png"> </div><!--width="130px"-->
+      <h1 class="titulocenter">{{imprimirTitulos()}}</h1>
+    </div>
+    
+
+    <!--Boton de menu-->
+    <div class="col-2" >
+      <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    
+
+    <!--Menu desplegable-->
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div id="tituloMenu" class="offcanvas-header tituloS">
+        <div id="titulo_menu"><h5 class="">BIENVENIDOS</h5></div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body tituloS">
+        <ul id="ulMenu" class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item btn btn-info">
+            <a class="nav-link active" aria-current="page" routerLink="ipermisos" data-bs-dismiss="offcanvas">PERMISOS</a>
+          </li>
+          <li class="nav-item btn btn-info">
+            <a class="nav-link" routerLink="icompensatorio" data-bs-dismiss="offcanvas">COMPENSATORIOS</a>
+          </li>
+          <li class="nav-item btn btn-info">
+            <a class="nav-link" routerLink="ivacaciones" data-bs-dismiss="offcanvas">VACACIONES</a>
+          </li>
+          <li class="nav-item btn btn-info">
+            <a class="nav-link" routerLink="icertificados" data-bs-dismiss="offcanvas">CERTIFICADOS</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!--Contenedor en donde cargaran las otras paginas llamadas en este menu-->
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+
