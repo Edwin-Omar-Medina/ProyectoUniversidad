@@ -1,9 +1,12 @@
 
-<form [formGroup]="formularioPermisos" class="row g-3"  (ngSubmit)="enviarPermiso()">
+<form class="row g-3" [formGroup] = "formularioPermisos" (ngSubmit)="enviarPermiso()">
+
+
+  <div>
+    <p>La fecha actual es {{this.fechaSolicitud }}</p>
+  </div>
   <!---Se usa (ngsubmit) para activar el metodo con el que se tomara la imnformacion de el formulario )-->
   <!---Se usa (formGroup ) para relacionar el formulario en el typescript y poder tomar la informacion) )-->
-
-
     <!--Se elije la opcion de documento-->
     <div class="col-md-6 mar">
       <label for="validationServer01" class="form-label control">Tipo de identificacion</label>
@@ -120,7 +123,7 @@
     </div>
 
 
-    <button id="Enviar" class="btn btn-primary" type="submit" >Solicitar</button> <!--href="vpermisos"-->
-      
+    <button id="Enviar" class="btn btn-primary" type="submit" (click)="Form_Permisos()">Solicitar</button> <!--href="vpermisos"-->
     
+      
 </form>

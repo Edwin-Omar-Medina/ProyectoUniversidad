@@ -37,7 +37,8 @@ import { VCompensatorioComponent } from './componentes/Compensatorio/vcompensato
     ICertificadosComponent,
     VCertificadosComponent,
     ICompensatorioComponent,
-    VCompensatorioComponent
+    VCompensatorioComponent,
+    
    
   ],
   imports: [

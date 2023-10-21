@@ -1,7 +1,11 @@
 
 import { Component, ElementRef, OnInit } from '@angular/core'; 
-import { FormBuilder } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
+import { FormGroup,FormBuilder  } from '@angular/forms';
+import { DatePipe } from '@angular/common';
+import { ServiciosService } from 'src/app/Servicios/servicios.service';
+import { HttpClient } from '@angular/common/http';
+
+
 
 @Component({
   
@@ -20,10 +24,12 @@ export class IPermisosComponent implements OnInit{
  
 
   //se define el constructor con el elementRef que nos permite poder usar funcionalidades para interactuar con html
-  constructor(private elementRef: ElementRef, public formulario:FormBuilder) {
+  constructor(private elementRef: ElementRef, public formBuilder:FormBuilder, public base:ServiciosService, private http:HttpClient) {
         
+    //this.formularioPermisos = new FormGroup;
       //se recupera la informacion de el formulario
-      this.formularioPermisos = this.formulario.group({
+      this.formularioPermisos = this.formBuilder.group({
+
         tipoDocumento:[''],
         numeroDocumento:[''],
         tipoPermiso:[''], 
@@ -36,8 +42,7 @@ export class IPermisosComponent implements OnInit{
         horaLlegada:[''],
        
       
-        
-      });
+        });
   }
 
   ngOnInit(): void { }
@@ -69,10 +74,32 @@ export class IPermisosComponent implements OnInit{
   enviarPermiso():any{
     console.log("Enviado xd");
     console.log(this.formularioPermisos.value);
-
   }
 
+  //creacion de la funcion que llama a el inform
+  today: number = Date.now();
+  pipe = new DatePipe('en-US');
+  transformDate(date: any) {
     
+    return this.pipe.transform(date, 'dd/MM/YYYY');
+  }
+
+  fechaSolicitud = this.transformDate(Date.now());
+
+  //Codigo Servicio que lleva el metodo al componente
+
+  GetReportePorCumplimiento(Mes:number,Ano:number){
+    let direccion:string;
+
+    direccion=this.base.getDireccionReportes() + 'api/ReportesVehiculos/GetReportePorCumplimiento?Ano=+'+Ano+'&Mes='+Mes;
+    
+    return  this.http.get<string>(direccion);
+  }
+
+  Form_Permisos(){
+    
+  }
+  
 }
 
  
