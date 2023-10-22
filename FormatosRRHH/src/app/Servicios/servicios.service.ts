@@ -7,10 +7,9 @@ export class ServiciosService {
 
   
 
-  private Url = 'https://191.102.97.38:8080/'; //WebApi Public
+  private Url = 'url de api'; //WebApi Public
 
- 
-  private UrlApiReportes = 'https://191.102.97.38:8081/'; //WebApiReportes Public
+  private UrlApiReportes = 'url de la pai reportes'; //WebApiReportes Public
  
   private version: number=1.27 ;
 
@@ -29,6 +28,8 @@ export class ServiciosService {
  }
 
  
-
-
 }
+
+
+
+
