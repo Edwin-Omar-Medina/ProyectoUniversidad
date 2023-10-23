@@ -38,7 +38,7 @@ export class IPermisosComponent implements OnInit{
         f_numDocEmpleado:[''],
         f_tipoFormato:['1'],
         f_tipoVacacionesoPermisos:[''], 
-        f_Remunerado:[''],
+        f_Remunerado:['1'],
         f_fechaI:[''], 
         f_horaI:[''],
         f_fechaF:[''],
@@ -100,27 +100,23 @@ export class IPermisosComponent implements OnInit{
   
 
   //codigo de boton que llama al servicio
-  SolicitarRPT_Permiso():any{
+  SolicitarRPT_Permiso(){
     //console.log("Enviado xd");
    // console.log(this.formularioPermisos.value);
+    //this.solicitudReporte()
+  }
+  BuscarReporte(){
+    this.solicitudReporte()
+  }
 
+  solicitudReporte(){
     this.solicitudFormatos.GetForm_Permisos(this.formularioPermisos)
-         .subscribe(resp => {
+    .subscribe(resp => {
 
-          window.open("","_blank")!.document.write("<html<head><title>Pdf</title><style>body{margin: 0px;}iframe{border-width: 0px;}</style></head> <body><embed width='100%' height='100%' src='data:application/pdf;base64, " + encodeURI(resp)+"#toolbar=0&navpanes=0&scrollbar=0'></embed></body></html>");
-    })
+      window.open("","_blank")!.document.write("<html<head><title>Pdf</title><style>body{margin: 0px;}iframe{border-width: 0px;}</style></head> <body><embed width='100%' height='100%' src='data:application/pdf;base64, " + encodeURI(resp)+"#toolbar=0&navpanes=0&scrollbar=0'></embed></body></html>");
+      })
   }
 
-
-  //caracteres maximos en el documento de identidad
-   limitarLongitud() {
-    let caracteres = this.formularioPermisos.get('f_numDocEmpleado')?.value;
-    let max = 5
-  
-    if (caracteres?.value.length > max) {
-      caracteres.value = caracteres.value.substring(0, max); // Recorta el valor a la longitud máxima
-    }
-  }
   
 }
 

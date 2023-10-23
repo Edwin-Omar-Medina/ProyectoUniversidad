@@ -7,9 +7,9 @@ export class ServiciosService {
 
   
 
-  private Url = 'url de api'; //WebApi Public
+  private Url = 'http://localhost/RRHH_WEB'; //WebApi Public
 
-  private UrlApiReportes = 'url de la pai reportes'; //WebApiReportes Public
+  private UrlApiReportes = 'http://localhost/RRHH_WEB/'; //WebApiReportes Public
  
   private version: number=1.27 ;
 

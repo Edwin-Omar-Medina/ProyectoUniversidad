@@ -5,6 +5,7 @@ import { FormGroup,FormBuilder  } from '@angular/forms';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,8 +24,8 @@ export class SolicitudFormatosService {
     //this.formInfo = informacion
     
       const fechaSolicitud = informacion.get('f_fechaSolicitud')?.value;
-      const numDocEmpleado =informacion.get('f_numDocEmpleado')?.value;
-      const tipoFormato =informacion.get('f_tipoFormato')?.value;
+      const numDocEmpleado = parseInt(informacion.get('f_numDocEmpleado')?.value);
+      const tipoFormato =parseInt(informacion.get('f_tipoFormato')?.value);
       const tipoVacacionesoPermisos =informacion.get('f_tipoVacacionesoPermisos')?.value;
       const Remunerado =informacion.get('f_Remunerado')?.value;
       const fechaI =informacion.get('f_fechaI')?.value;
@@ -37,7 +38,10 @@ export class SolicitudFormatosService {
       const fechaAdicion_F =informacion.get('f_fechaAdicion_F')?.value;
       const horaAdicion_F =informacion.get('f_horaAdicion_F')?.value;
       const tipoCertificado =informacion.get('f_tipoCertificado')?.value;
-    
+    /*string fechaSolicitud, int numDocEmpleado, int tipoFormato, string tipoVacacionesoPermisos, 
+    int Remunerado, string fechaI, string horaI, string fechaF, string horaF, string Motivo,
+     string fechaAdicion_I, string horaAdicion_I, string fechaAdicion_F, string horaAdicion_F, string tipoCertificado*/
+
       console.log(fechaSolicitud);
       console.log(numDocEmpleado);
       console.log(tipoFormato);
@@ -54,13 +58,13 @@ export class SolicitudFormatosService {
       console.log(horaAdicion_F);
       console.log(tipoCertificado);
 
-    direccion=this.base.getDireccionReportes() + 'ingrese url de la api?fechaSolicitud=+'+fechaSolicitud+'&numDocEmpleado='+numDocEmpleado
-      +'&tipoFormato='+tipoFormato+'&tipoVacacionesoPermisos='+tipoVacacionesoPermisos+'&Remunerado='+Remunerado+'&fechaI='+fechaI
+    direccion=this.base.getDireccionReportes() + 'api/llamadaReportes?fechaSolicitud='+fechaSolicitud+'&numDocEmpleado='+numDocEmpleado
+      +'&tipoFormato='+tipoFormato+'&tipoVacacionesoPermisos='+tipoVacacionesoPermisos+'&Remunerado='+1+'&fechaI='+fechaI
       +'&horaI='+horaI+'&fechaF='+fechaF+'&horaF='+horaF+'&Motivo='+Motivo+'&fechaAdicion_I='+fechaAdicion_I+'&horaAdicion_I='+horaAdicion_I
       +'&fechaAdicion_F='+fechaAdicion_F+'&horaAdicion_F='+horaAdicion_F+'&tipoCertificado='+tipoCertificado;
     
-    return  this.http.get<string>(direccion);
-    direccion=this.base.getDireccionReportes() + 'ingrese url de la api?';
+    //return  this.http.get<string>(direccion);
+    //direccion=this.base.getDireccionReportes() + 'ingrese url de la api?';
     return this.http.get<string>(direccion);
    }
 }
