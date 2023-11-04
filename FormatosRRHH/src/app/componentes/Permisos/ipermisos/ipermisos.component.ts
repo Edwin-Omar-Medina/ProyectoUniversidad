@@ -92,7 +92,7 @@ export class IPermisosComponent implements OnInit{
   pipe = new DatePipe('en-US');
   transformDate(date: any) {
     
-    return this.pipe.transform(date, 'dd/MM/YYYY');
+    return this.pipe.transform(date, 'yyyy/MM/dd');
   }
 
   fechaSolicitud = this.transformDate(Date.now());
@@ -113,7 +113,7 @@ export class IPermisosComponent implements OnInit{
     this.solicitudFormatos.GetForm_Permisos(this.formularioPermisos)
     .subscribe(resp => {
 
-      window.open("","_blank")!.document.write("<html<head><title>Pdf</title><style>body{margin: 0px;}iframe{border-width: 0px;}</style></head> <body><embed width='100%' height='100%' src='data:application/pdf;base64, " + encodeURI(resp)+"#toolbar=0&navpanes=0&scrollbar=0'></embed></body></html>");
+      window.open("","_blank")!.document.write("<html<head><title>Pdf</title><style>body{margin: 0px;}iframe{border-width: 0px;}</style></head> <body><embed width='100%' height='100%' src='data:application/pdf;base64, " + encodeURI(resp) + "#toolbar=0&navpanes=0&scrollbar=0'></embed></body></html>");
       })
   }
 
