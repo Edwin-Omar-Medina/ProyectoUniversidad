@@ -1,0 +1,54 @@
+/* nombre-componente.component.css */
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Cambia el color de fondo del botón según tus preferencias */
+    background-image:url(https://img.freepik.com/foto-gratis/retrato-abstracto-ojo-elegancia-mujeres-jovenes-generado-ai_188544-9712.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699056000&semt=ais);
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 500px;
+    position: relative;
+    margin-left: 20%;
+    margin-right: 50%;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+  
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  
+  .progress-bar {
+    margin-left: -1.3rem;
+    width: 95%;
+    height: 100%;
+    background-color: #f1f1f1;   
+    height: 100%;
+    position: relative;
+  }
+  
+  .progress {
+    background-color: #ec6ccc; /* Cambia el color de la barra de progreso según tus preferencias */
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    width:95%;
+    height:100%;
+    position:absolute;
+    top:0;
+    bottom:0;
+  }
+
+  /* Responsive de la barra superior TITULO E IMAGEN*/
+@media(max-width:768px){
+    .progress-bar{
+		margin-left: 0rem;
+	}
+	button{
+		width: 95%;
+		margin-left: 2%;
+		margin-right: 5%;
+	}
+   
+}

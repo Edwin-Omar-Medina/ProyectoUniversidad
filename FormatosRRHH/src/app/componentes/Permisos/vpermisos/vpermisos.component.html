@@ -1,2 +1,110 @@
-<p>vpermisos works!</p>
 
+<form class="row g-3" >
+
+
+    <!---Se usa (ngsubmit) para activar el metodo con el que se tomara la imnformacion de el formulario )-->
+    <!---Se usa (formGroup ) para relacionar el formulario en el typescript y poder tomar la informacion) )-->
+      <!--Se elije la opcion de documento-->
+      <div class="col-md-6 mar">
+        <label for="validationServer01" class="form-label control">Tipo de identificacion</label>
+        <select id="validationServer01" class="form-select" required formControlName="f_tipoDocumento"> <!---Se usa formControlName para llamar esa variable y poder tomar el valor ingresado-->
+          <option selected value> - Seleccione el tipo de identificación -</option>
+          <option value="Cedula de Ciudadania">Cedula de Ciudadania</option>
+          <option value="Cedula de Extrangeria">Cedula de Extrangeria</option>
+        </select>
+        
+      </div>
+      
+      <!--Se ingresa el numero de documento-->
+      <div class="col-md-6 mar">
+        <label for="validationServer02" class="form-label">Número de identificacion</label> <!--el oninput se usa para limitar la cantidad de caracteres del input -->
+        <input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control custom-number"   formControlName="f_numDocEmpleado" required oninput="if(this.value.length > 12) this.value = this.value.slice(0, 10)">
+      </div>
+      
+      <!--Se elije la opcion del  permiso-->
+      <div class="col-md-6 mar">
+          <label for="validationServer03" class="form-label control">Tipo de permiso</label>
+          <select id="validationServer03" class="form-select" required formControlName="f_tipoVacacionesoPermisos">
+            <option selected value> - Seleccione el tipo de permiso -</option>
+            <option value="Cita Medica">Cita Medica</option>
+            <option value="Escolar">Escolar</option>
+            <option value="Personal">Personal</option>
+            <option value="Jornada Familiar">Jornada Familiar</option>
+          </select>
+          
+      </div>
+  
+  
+      <!--Se elije la opcion remunerado o no -->
+      <div id="radioButtons" class="col-md-3 col-6 row mar">
+        <label class="form-check-label" for="flexRadioDefault2">
+          ¿Remunerado?
+        </label>
+        <div class=" form-check">
+  
+          <!--[(ngModel)]="opcion"-->
+  
+          <div >
+            <input id="rbt_si" formControlName="f_Remunerado"  class="form-check-input" type="radio" name="f_Remunerado" id="flexRadioDefault1" cheked value="remunerado"  >
+              <label class="form-check-label" for="flexRadioDefault1">
+                Sí
+              </label>
+          </div>
+          <div>
+            <input id="rbt_no" formControlName="f_Remunerado"   class="form-check-input" type="radio" name="f_Remunerado" id="flexRadioDefault2" value="no remunerado"   >
+              <label class="form-check-label" for="flexRadioDefault2">
+                No
+              </label>
+          </div>
+  
+        </div>
+       
+      </div>
+      <div id="textomostrarPadre" class="col-md-3 col-6 mar"> <p  id="textoMostrar">No autorizo que se realice ningun descuento</p></div>
+  
+  
+  
+      <!--Se elije descripcion del permiso-->
+      <div class="col-md-12 mar">
+          <label for="exampleFormControlTextarea1" class="form-label">Descripción del permiso</label>
+          <textarea  formControlName="f_Motivo" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ingrese el motivo del permiso y si es remunerado detalle fecha y hora de reposicion de tiempo"></textarea>
+      </div>
+  
+  
+      
+      <div class="container row mar col-md-12">
+        <!--Se ingresa datos de fecha salida-->
+        <div class="col-6 mar">
+          <label for="validationServer02" class="form-label">Fecha de salida</label>
+          <input type="date" class="form-control " id="validationServer02" required formControlName="f_fechaI" >
+        
+        </div>
+      
+        <!--Se ingresa  hora de salida-->
+        <div class="col-6 mar">
+          <label for="validationServer02" class="form-label">Hora de salida</label>
+          <input type="time" class="form-control " id="validationServer02" required formControlName="f_horaI">
+        
+        </div>
+      
+      
+        <!--Se ingresa datos de fecha llegada-->
+        <div class="col-6 mar">
+          <label for="validationServer02" class="form-label">Fecha de llegada</label>
+          <input type="date" class="form-control " id="validationServer02" required formControlName="f_fechaF">
+         
+        </div>
+      
+        <!--Se ingresa datos de hora de llegada-->
+        <div class="col-6 mar">
+          <label for="validationServer02" class="form-label">Hora de llegada</label>
+          <input type="time" class="form-control " id="validationServer02" required formControlName="f_horaF">
+          
+        </div>
+      </div>
+  
+  
+      <!--<button id="Enviar" class="btn btn-primary" type="submit" (click)="BuscarReporte()">Solicitar</button> -->
+      
+        
+  </form>

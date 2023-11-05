@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    /*background-image:url(https://img.freepik.com/foto-gratis/resumen-bombilla-creativa-sobre-fondo-azul-brillante-ia-generativa_188544-8090.jpg?w=360&t=st=1699125421~exp=1699126021~hmac=36418d8c5d961ed8901f9794c40a60a4b61425d3439a30d94b5d2f12a572f9c4);*/
+    
+    /*background-image:url(assets/Fondo.jpg);*/
+    --opacidad-negro: 0.8;
+    background-image: linear-gradient(rgba(0, 0, 0, var(--opacidad-negro)), rgba(0, 0, 0, var(--opacidad-negro))),url(https://img.freepik.com/fotos-premium/marco-3d-abstracto-bocanadas-humo-colorido-luz-neon-sobre-fondo-negro-generado-ai_88188-2843.jpg);
+    background-repeat:no-repeat ;
+    background-attachment: fixed;
+    background-size: 100% 130%;
+    /*color: #ffffff;
+    */
+}

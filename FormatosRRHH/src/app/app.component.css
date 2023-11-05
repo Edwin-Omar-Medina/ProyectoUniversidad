@@ -1,6 +1,10 @@
 
 .container{
     margin-top: 10rem;
+    margin-bottom: 3rem;
+    /*margin-left: 10rem;*/
+    max-width: 800px;
+   
 }
 
 .nav-item{
