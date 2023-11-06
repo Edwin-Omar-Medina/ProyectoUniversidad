@@ -45,13 +45,13 @@
         <!--[(ngModel)]="opcion"-->
 
         <div >
-          <input id="rbt_si" formControlName="f_Remunerado"  class="form-check-input" type="radio" name="f_Remunerado" id="flexRadioDefault1" cheked value="remunerado"  (change)=" validar_rbt()" >
+          <input id="rbt_si" formControlName="f_Remunerado"  class="form-check-input" type="radio" name="f_Remunerado" id="flexRadioDefault1" cheked value="remunerado"  (change)="validar_rbt()" >
             <label class="form-check-label" for="flexRadioDefault1">
               Sí
             </label>
         </div>
         <div>
-          <input id="rbt_no" formControlName="f_Remunerado"   class="form-check-input" type="radio" name="f_Remunerado" id="flexRadioDefault2" value="no remunerado"  (change)=" validar_rbt()">
+          <input id="rbt_no" formControlName="f_Remunerado"   class="form-check-input" type="radio" name="f_Remunerado" id="flexRadioDefault2" value="no remunerado"  (change)="validar_rbt()">
             <label class="form-check-label" for="flexRadioDefault2">
               No
             </label>
@@ -60,7 +60,7 @@
       </div>
      
     </div>
-    <div *ngIf="isVisible"  id="textomostrarPadre" class="col-md-12 col-12 mar"> <p [style.background]="selectedColor" id="textoMostrar">No autorizo que se realice ningun descuento</p></div>
+    <div *ngIf="isVisible"  id="textomostrarPadre" class="col-md-12 col-12 mar"> <p id="textoMostrar" [style.background]="selectedColor" >No autorizo que se realice ningun descuento</p></div>
 
     <!--Se elije descripcion del permiso-->
     <div class="col-md-12 mar">

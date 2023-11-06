@@ -38,11 +38,13 @@ export class IPermisosComponent implements OnInit{
       this.formularioPermisos = this.formBuilder.group({
 
         f_fechaSolicitud:[this.fechaSolicitud],
-        f_tipoDocumento:[''],//pendiente por creacion en la tabla
+        f_tipoDocumento:[],//pendiente por creacion en la tabla
         f_numDocEmpleado:[''],
-        f_tipoFormato:['1'],
+        f_tipoFormato:[1],
         f_tipoVacacionesoPermisos:[''], 
-        f_Remunerado:['1'],
+        I_Remunerado:[],
+        f_Remunerado:[''],
+        autorizacion:[''],
         f_fechaI:[''], 
         f_horaI:[''],
         f_fechaF:[''],
@@ -68,23 +70,26 @@ export class IPermisosComponent implements OnInit{
 
   
   //FUNCION PARA VALIDAR SI ES REMUNERADO O NO EL PERMISO
-  validar_rbt(): void {
+  validar_rbt() {
     this.isVisible = true;
     console.log("Si entro a la funcion");
     let valorBtn = this.formularioPermisos.get('f_Remunerado')?.value;
     const opcionTexto_1="No autorizo que se realice ningun descuento";
     const opcionTexto_2="Autorizo que se me realice el respectivo descuento por el tiempo ausente de mis labores";
-    const mostrartexto = this.elementRef.nativeElement.querySelector('#textoMostrar');
+    let mostrartexto = this.elementRef.nativeElement.querySelector('#textoMostrar');
 
-    if (valorBtn=== 'remunerado') {
+    if (valorBtn == 'remunerado') {
       this.selectedColor="green"
-      mostrartexto.textContent = opcionTexto_1;
+      this.formularioPermisos.get('I_Remunerado')?.setValue(1);
+      mostrartexto = opcionTexto_1;
       this.formularioPermisos.get('autorizacion')?.setValue(opcionTexto_1);
       console.log("valorBtn "+valorBtn );
     } 
-    else if (valorBtn === 'no remunerado') {
+    else if (valorBtn == 'no remunerado') {
       this.selectedColor='red'
-      mostrartexto.textContent = ""+opcionTexto_2;
+      this.formularioPermisos.get('I_Remunerado')?.setValue(0);
+      console.log("remunerado 0 --> " + this.formularioPermisos.get('I_Remunerado')?.value)
+      mostrartexto = opcionTexto_2;
       this.formularioPermisos.get('autorizacion')?.setValue(opcionTexto_2);
     }
     
@@ -97,6 +102,8 @@ export class IPermisosComponent implements OnInit{
     this.formularioPermisos.get('f_numDocEmpleado')?.setValue("");
     this.formularioPermisos.get('f_tipoFormato')?.setValue("");
     this.formularioPermisos.get('f_tipoVacacionesoPermisos')?.setValue("");
+    this.formularioPermisos.get('I_Remunerado')?.setValue(0);
+    this.formularioPermisos.get('f_Remunerado')?.setValue("");
     this.formularioPermisos.get('f_fechaI')?.setValue("");
     this.formularioPermisos.get('f_horaI')?.setValue("");
     this.formularioPermisos.get('f_fechaF')?.setValue("");
@@ -127,7 +134,7 @@ export class IPermisosComponent implements OnInit{
   }
 
   //FUNCIÓN PRINCIPAL QUE SE LLAMA DESDE EL BOTON DE SOLICITUD
-  BuscarReporte():void{
+  BuscarReporte(){
     this.simulateLoading();
     this.solicitudReporte();
     this.LimpiarCampos();   
