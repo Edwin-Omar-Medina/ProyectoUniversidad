@@ -60,7 +60,7 @@
       </div>
      
     </div>
-    <div *ngIf="isVisible"  id="textomostrarPadre" class="col-md-12 col-12 mar"> <p id="textoMostrar" [style.background]="selectedColor" >No autorizo que se realice ningun descuento</p></div>
+    <div *ngIf="isVisible"  id="textomostrarPadre" class="col-md-12 col-12 mar"> <p id="textoMostrar" [style.background]="selectedColor" >{{textoMostrarSeleccion}}</p></div>
 
     <!--Se elije descripcion del permiso-->
     <div class="col-md-12 mar">
@@ -102,7 +102,7 @@
       
 
 
-<button (click)="BuscarReporte()" [disabled]="isLoading" >
+<button type="submit" (click)="BuscarReporte()" [disabled]="isLoading" >
   {{ isLoading ? 'Cargando...' : 'Iniciar carga' }}
   <div class="progress progress-bar" [style.width.%]="progress">
 

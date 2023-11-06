@@ -7,7 +7,6 @@ import { HomeComponent } from './componentes/home/home.component';
 
 //Importacion de rutas para PERMISOS
 import { IPermisosComponent } from './componentes/Permisos/ipermisos/ipermisos.component';
-import { VPermisosComponent } from './componentes/Permisos/vpermisos/vpermisos.component';
 
 //Importacion de rutas para VACACIONES
 import { IVacacionesComponent } from './componentes/Vacaciones/ivacaciones/ivacaciones.component';
@@ -29,7 +28,6 @@ const routes: Routes = [
   
   //Rutas de permisos Ingreso de datos y visualizador de formato con datos
   {path : 'ipermisos', component:IPermisosComponent },
-  {path : 'vpermisos', component: VPermisosComponent },   
 
 
   //Rutas de vacaciones Ingreso de datos y visualizador de formato con datos

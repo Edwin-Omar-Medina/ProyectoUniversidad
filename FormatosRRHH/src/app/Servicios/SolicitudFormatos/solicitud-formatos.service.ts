@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormGroup,FormBuilder  } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { DatosEnv } from 'src/app/Clases/DatosEnv';
+import { data } from 'jquery';
 
 
 @Injectable({
@@ -63,10 +64,26 @@ export class SolicitudFormatosService {
       +'&horaI='+horaI+'&fechaF='+fechaF+'&horaF='+horaF+'&Motivo='+Motivo+'&fechaAdicion_I='+fechaAdicion_I+'&horaAdicion_I='+horaAdicion_I
       +'&fechaAdicion_F='+fechaAdicion_F+'&horaAdicion_F='+horaAdicion_F+'&tipoCertificado='+tipoCertificado;
     
-    
-    return this.http.get<string>(direccion);
+      return this.http.get<string>(direccion);
   }
 
+
+  ValidarDoc(numDocEmpleado:number) {
+    let url:string;
+    
+    url=this.base.getDireccionReportes() + 'api/ValidarDOC?&numDocEmpleado='+numDocEmpleado;
+   
+    return new Promise((resolve, reject) => {
+      this.http.get(url).subscribe(
+        (data: any) => {
+          resolve(data); // Devuelve la respuesta de la API
+        },
+        (error) => {
+          reject(error); // Rechaza la Promesa en caso de error
+        }
+      );
+    });
+  }
 }
 
 

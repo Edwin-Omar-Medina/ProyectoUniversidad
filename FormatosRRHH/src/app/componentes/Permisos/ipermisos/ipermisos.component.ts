@@ -5,7 +5,7 @@ import { DatePipe } from '@angular/common';
 import { ServiciosService } from 'src/app/Servicios/servicios.service';
 import { HttpClient } from '@angular/common/http';
 import { SolicitudFormatosService } from 'src/app/Servicios/SolicitudFormatos/solicitud-formatos.service';
-
+import { Observable, of } from 'rxjs';
 
 
 
@@ -25,6 +25,8 @@ export class IPermisosComponent implements OnInit{
   formularioPermisos:FormGroup;
   isVisible:boolean = false;
   selectedColor:string='';
+  textoMostrarSeleccion:string='';
+  miVariable: number=0;
 
   
 
@@ -50,11 +52,11 @@ export class IPermisosComponent implements OnInit{
         f_fechaF:[''],
         f_horaF:[''],
         f_Motivo:[''],
-        f_fechaAdicion_I:[''],
-        f_horaAdicion_I:[''],
-        f_fechaAdicion_F:[''],
-        f_horaAdicion_F:[''],
-        f_tipoCertificado:[''],
+        f_fechaAdicion_I:['na'],
+        f_horaAdicion_I:['na'],
+        f_fechaAdicion_F:['na'],
+        f_horaAdicion_F:['na'],
+        f_tipoCertificado:['na'],
         });
 
         //this.formularioPermisos.get('tipoDocumento').value
@@ -76,12 +78,13 @@ export class IPermisosComponent implements OnInit{
     let valorBtn = this.formularioPermisos.get('f_Remunerado')?.value;
     const opcionTexto_1="No autorizo que se realice ningun descuento";
     const opcionTexto_2="Autorizo que se me realice el respectivo descuento por el tiempo ausente de mis labores";
-    let mostrartexto = this.elementRef.nativeElement.querySelector('#textoMostrar');
+    //let mostrartexto = this.elementRef.nativeElement.querySelector('#textoMostrar');
 
     if (valorBtn == 'remunerado') {
       this.selectedColor="green"
       this.formularioPermisos.get('I_Remunerado')?.setValue(1);
-      mostrartexto = opcionTexto_1;
+      //this.elementRef.nativeElement.querySelector('#textoMostrar').value = opcionTexto_1;
+      this.textoMostrarSeleccion = opcionTexto_1;
       this.formularioPermisos.get('autorizacion')?.setValue(opcionTexto_1);
       console.log("valorBtn "+valorBtn );
     } 
@@ -89,7 +92,8 @@ export class IPermisosComponent implements OnInit{
       this.selectedColor='red'
       this.formularioPermisos.get('I_Remunerado')?.setValue(0);
       console.log("remunerado 0 --> " + this.formularioPermisos.get('I_Remunerado')?.value)
-      mostrartexto = opcionTexto_2;
+      //this.elementRef.nativeElement.querySelector('#textoMostrar').value= opcionTexto_2;
+      this.textoMostrarSeleccion = opcionTexto_2;
       this.formularioPermisos.get('autorizacion')?.setValue(opcionTexto_2);
     }
     
@@ -110,8 +114,10 @@ export class IPermisosComponent implements OnInit{
     this.formularioPermisos.get('f_horaF')?.setValue("");
     this.formularioPermisos.get('f_Motivo')?.setValue("");
     this.formularioPermisos.get('f_fechaSolicitud')?.setValue("");
+    this.isVisible = false;
   }
 
+ 
  
 
   
@@ -135,9 +141,50 @@ export class IPermisosComponent implements OnInit{
 
   //FUNCIÓN PRINCIPAL QUE SE LLAMA DESDE EL BOTON DE SOLICITUD
   BuscarReporte(){
-    this.simulateLoading();
-    this.solicitudReporte();
-    this.LimpiarCampos();   
+    //con esto validamos si los campos de el formGroup estan llenos
+    if(this.formularioPermisos.valid){
+      console.log("estan llenos los campos")
+      this.simulateLoading(); //llama a la funcion que muestra la barra de carga
+       
+      this.validarDOC(); //llama a la funcion que valida el documento 
+ 
+      this.LimpiarCampos(); //llama a la funcion que limpiara los campos del formulario  
+    }else{
+      this.mostrarAlerta(3);
+    }
+
+  }
+
+  //FUNCIÓN PARA VALIDAR SI EL NÚMERO DE DOCUMENTO EXISTE EN LA BASE DE DATOS
+  validarDOC(){
+
+      this.solicitudFormatos.ValidarDoc(this.formularioPermisos.get('f_numDocEmpleado')?.value).then((data) => {
+        // Utiliza los datos obtenidos de la API aquí
+        if (typeof data === 'number') {
+          if(data > 0 ){
+            this.solicitudReporte();//se llama la funcion que mostrara el reporte
+          }else{
+            this.mostrarAlerta(data);
+          }
+        }
+      })
+      .catch((error) => {
+        // Manejo de errores
+        console.error('Error al obtener datos de la API 22:', error);
+      });
+  }
+   
+
+  //MOSTRAR ALERTA EN PANTALLA
+  mostrarAlerta(numero:number) {
+    if (numero == 0 ){
+      window.alert('El número de documento ingresado es incorrecto intentelo nuevamente');
+    }else if(numero == 3){
+      window.alert('Faltan campos por llenar');
+    }
+    else{
+      window.alert('La información suministrada es incorrecta');
+    }
   }
 
   //FUNCIÓN PARA SOLICITAR Y MOSTRAR EL REPORTE
