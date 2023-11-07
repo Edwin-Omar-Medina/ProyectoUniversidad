@@ -1,11 +1,11 @@
 
 import { Component, ElementRef, OnInit } from '@angular/core'; 
-import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
+import {  FormGroup,FormBuilder} from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { ServiciosService } from 'src/app/Servicios/servicios.service';
 import { HttpClient } from '@angular/common/http';
 import { SolicitudFormatosService } from 'src/app/Servicios/SolicitudFormatos/solicitud-formatos.service';
-import { Observable, of } from 'rxjs';
+
 
 
 
@@ -26,7 +26,6 @@ export class IPermisosComponent implements OnInit{
   isVisible:boolean = false;
   selectedColor:string='';
   textoMostrarSeleccion:string='';
-  miVariable: number=0;
 
   
 
@@ -146,9 +145,10 @@ export class IPermisosComponent implements OnInit{
       console.log("estan llenos los campos")
       this.simulateLoading(); //llama a la funcion que muestra la barra de carga
        
+      //this.solicitudReporte();//se llama la funcion que mostrara el reporte
       this.validarDOC(); //llama a la funcion que valida el documento 
  
-      this.LimpiarCampos(); //llama a la funcion que limpiara los campos del formulario  
+      //this.LimpiarCampos(); //llama a la funcion que limpiara los campos del formulario  
     }else{
       this.mostrarAlerta(3);
     }
@@ -193,7 +193,9 @@ export class IPermisosComponent implements OnInit{
     .subscribe(resp => {
 
       window.open("","_blank")!.document.write("<html<head><title>Pdf</title><style>body{margin: 0px;}iframe{border-width: 0px;}</style></head> <body><embed width='100%' height='100%' src='data:application/pdf;base64, " + encodeURI(resp) + "#toolbar=0&navpanes=0&scrollbar=0'></embed></body></html>");
-      })
+      });
+    
+    this.LimpiarCampos();
   }
 
 
