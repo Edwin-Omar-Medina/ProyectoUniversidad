@@ -16,7 +16,6 @@ import { HttpClientModule } from '@angular/common/http'; //para ahcer peticiones
 
 import { HomeComponent } from './componentes/home/home.component';
 import { IVacacionesComponent } from './componentes/Vacaciones/ivacaciones/ivacaciones.component';
-import { VVacacionesComponent } from './componentes/Vacaciones/vvacaciones/vvacaciones.component';
 import { IPermisosComponent } from './componentes/Permisos/ipermisos/ipermisos.component';
 
 import { ICertificadosComponent } from './componentes/Certificados/icertificados/icertificados.component';
@@ -29,7 +28,6 @@ import { ICompensatorioComponent } from './componentes/Compensatorio/icompensato
     AppComponent,
     HomeComponent,
     IVacacionesComponent,
-    VVacacionesComponent,
     IPermisosComponent,
     ICertificadosComponent,
     ICompensatorioComponent,

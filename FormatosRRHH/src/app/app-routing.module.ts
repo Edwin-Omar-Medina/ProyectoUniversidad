@@ -10,7 +10,6 @@ import { IPermisosComponent } from './componentes/Permisos/ipermisos/ipermisos.c
 
 //Importacion de rutas para VACACIONES
 import { IVacacionesComponent } from './componentes/Vacaciones/ivacaciones/ivacaciones.component';
-import { VVacacionesComponent } from './componentes/Vacaciones/vvacaciones/vvacaciones.component';
 
 //Importacion de rutas para COMPENSATORIOS
 import { ICompensatorioComponent } from './componentes/Compensatorio/icompensatorio/icompensatorio.component';
@@ -31,7 +30,6 @@ const routes: Routes = [
 
   //Rutas de vacaciones Ingreso de datos y visualizador de formato con datos
   {path : 'ivacaciones', component:IVacacionesComponent  }, 
-  {path : 'vvacaciones', component: VVacacionesComponent }, 
 
   //Rutas de compensatorios Ingreso de datos y visualizador de formato con datos
   {path : 'icompensatorio', component:ICompensatorioComponent  }, 
