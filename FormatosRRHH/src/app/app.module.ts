@@ -20,7 +20,6 @@ import { VVacacionesComponent } from './componentes/Vacaciones/vvacaciones/vvaca
 import { IPermisosComponent } from './componentes/Permisos/ipermisos/ipermisos.component';
 
 import { ICertificadosComponent } from './componentes/Certificados/icertificados/icertificados.component';
-import { VCertificadosComponent } from './componentes/Certificados/vcertificados/vcertificados.component';
 import { ICompensatorioComponent } from './componentes/Compensatorio/icompensatorio/icompensatorio.component';
 import { VCompensatorioComponent } from './componentes/Compensatorio/vcompensatorio/vcompensatorio.component';
 
@@ -34,7 +33,6 @@ import { VCompensatorioComponent } from './componentes/Compensatorio/vcompensato
     VVacacionesComponent,
     IPermisosComponent,
     ICertificadosComponent,
-    VCertificadosComponent,
     ICompensatorioComponent,
     VCompensatorioComponent,
     

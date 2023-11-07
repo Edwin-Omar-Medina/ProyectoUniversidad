@@ -18,7 +18,7 @@ import { VCompensatorioComponent } from './componentes/Compensatorio/vcompensato
 
 //Importacion de rutas para CERTIFICADOS
 import { ICertificadosComponent } from './componentes/Certificados/icertificados/icertificados.component';
-import { VCertificadosComponent } from './componentes/Certificados/vcertificados/vcertificados.component';
+
 
 const routes: Routes = [
 
@@ -40,7 +40,6 @@ const routes: Routes = [
 
   //Rutas de certificados Ingreso de datos y visualizador de formato con datos
   {path : 'icertificados', component:ICertificadosComponent  }, 
-  {path : 'vcertificados', component: VCertificadosComponent }, 
 
 
   
