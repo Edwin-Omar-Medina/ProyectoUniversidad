@@ -14,7 +14,6 @@ import { VVacacionesComponent } from './componentes/Vacaciones/vvacaciones/vvaca
 
 //Importacion de rutas para COMPENSATORIOS
 import { ICompensatorioComponent } from './componentes/Compensatorio/icompensatorio/icompensatorio.component';
-import { VCompensatorioComponent } from './componentes/Compensatorio/vcompensatorio/vcompensatorio.component';
 
 //Importacion de rutas para CERTIFICADOS
 import { ICertificadosComponent } from './componentes/Certificados/icertificados/icertificados.component';
@@ -36,7 +35,6 @@ const routes: Routes = [
 
   //Rutas de compensatorios Ingreso de datos y visualizador de formato con datos
   {path : 'icompensatorio', component:ICompensatorioComponent  }, 
-  {path : 'vcompensatorio', component: VCompensatorioComponent }, 
 
   //Rutas de certificados Ingreso de datos y visualizador de formato con datos
   {path : 'icertificados', component:ICertificadosComponent  }, 
