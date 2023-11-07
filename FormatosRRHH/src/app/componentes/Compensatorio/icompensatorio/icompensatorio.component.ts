@@ -60,34 +60,6 @@ export class ICompensatorioComponent {
  }
 
  
- //FUNCION PARA VALIDAR SI ES REMUNERADO O NO EL PERMISO
- validar_rbt() {
-   this.isVisible = true;
-   console.log("Si entro a la funcion");
-   let valorBtn = this.formularioPermisos.get('f_Remunerado')?.value;
-   const opcionTexto_1="No autorizo que se realice ningun descuento";
-   const opcionTexto_2="Autorizo que se me realice el respectivo descuento por el tiempo ausente de mis labores";
-   //let mostrartexto = this.elementRef.nativeElement.querySelector('#textoMostrar');
-
-   if (valorBtn == 'remunerado') {
-     this.selectedColor="green"
-     this.formularioPermisos.get('I_Remunerado')?.setValue(1);
-     //this.elementRef.nativeElement.querySelector('#textoMostrar').value = opcionTexto_1;
-     this.textoMostrarSeleccion = opcionTexto_1;
-     this.formularioPermisos.get('autorizacion')?.setValue(opcionTexto_1);
-     console.log("valorBtn "+valorBtn );
-   } 
-   else if (valorBtn == 'no remunerado') {
-     this.selectedColor='red'
-     this.formularioPermisos.get('I_Remunerado')?.setValue(0);
-     console.log("remunerado 0 --> " + this.formularioPermisos.get('I_Remunerado')?.value)
-     //this.elementRef.nativeElement.querySelector('#textoMostrar').value= opcionTexto_2;
-     this.textoMostrarSeleccion = opcionTexto_2;
-     this.formularioPermisos.get('autorizacion')?.setValue(opcionTexto_2);
-   }
-   
- }
-
  //FUNCIÓN USADA PARA LIMPIAR LOS CAMPOS DEL FORMULARIO 
  LimpiarCampos(){
    this.formularioPermisos.get('f_fechaSolicitud')?.setValue("");

@@ -1,0 +1,93 @@
+#Formato{
+    background-color: rgb(255, 255, 255);
+    border: rgb(82, 81, 81) 5px solid;
+    opacity: 100;
+}
+
+
+#Enviar{
+    width: 50%;
+    margin-top: 2rem;
+    margin-left: 25%;
+    margin-right: 25%;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+
+}
+
+.mar{
+    margin-top: 2rem;
+}
+
+#radioButtons{
+    /*margin-left: 0.5rem;*/
+    padding-left: 3rem;
+}
+
+#textoMostrar{
+    padding: 1rem;
+    text-align: center;
+    background-color: rgb(234, 252, 79);
+    color: white;
+}
+
+/*@media(max-width:869px){
+    #textoMostrar{
+        margin-left: 2.5rem;
+    }
+
+    #radioButtons{
+        
+        padding-left: 2rem;
+    }
+}*/
+
+#textomostrarPadre{
+    height: 5rem;
+    margin-bottom: -1.5rem;
+}
+
+
+/*Oculta las flechas laterales de el campo documento de identificacion y solo se resibe numeros*/
+
+.custom-number::-webkit-inner-spin-button,
+.custom-number::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.custom-number {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.custom-number:focus {
+  outline: none;
+}
+
+
+
+/*-------------------------
+	The buttons
+--------------------------*/
+/*
+#submitButton{
+    color: white;
+    font-size:24px;
+    display: inline-block;
+    text-decoration: none !important;
+    background-image:url(https://img.freepik.com/foto-gratis/retrato-abstracto-ojo-elegancia-mujeres-jovenes-generado-ai_188544-9712.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699056000&semt=ais);
+    filter: brightness(0.5);
+
+    padding:14px 60px;
+	line-height:1;
+	overflow: hidden;
+	position:relative;
+}
+
+
+#submitButton:hover{
+   
+    filter: brightness(1)
+}*/
+/******************************************************************************************************************************************/
